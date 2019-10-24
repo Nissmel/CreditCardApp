@@ -1,6 +1,7 @@
 package io.nissmel.creditcard.model;
 
 import io.nissmel.creditcard.CreditCard;
+import io.nissmel.creditcard.exeptions.CreditBelowMinimumException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -22,8 +23,16 @@ public class CreditCardTest {
     @Test
     public void itVerifyMinimumCredit()
     {
+        CreditCard card = new CreditCard("1412-1231");
 
+        try
+        {
+            card.assignLimit(BigDecimal.valueOf(50));
+            Assert.fail("Exception should be thrown");
+        }
+        catch(CreditBelowMinimumException e)
+        {
+            Assert.assertTrue(true);
+        }
     }
-
-
 }

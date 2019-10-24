@@ -1,5 +1,7 @@
 package io.nissmel.creditcard;
 
+import io.nissmel.creditcard.exeptions.CreditBelowMinimumException;
+
 import java.math.BigDecimal;
 
 public class CreditCard {
@@ -13,6 +15,8 @@ public class CreditCard {
 
     public void assignLimit(BigDecimal newLimit)
     {
+        if(BigDecimal.valueOf(100).compareTo(newLimit)==1)
+            throw new CreditBelowMinimumException();
         this.creditLimit = newLimit;
     }
 
