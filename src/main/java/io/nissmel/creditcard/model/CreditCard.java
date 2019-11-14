@@ -23,6 +23,8 @@ class CreditCard {
         }
 
         creditLimit = newLimit;
+
+
         cardBalance = creditLimit;
     }
 
